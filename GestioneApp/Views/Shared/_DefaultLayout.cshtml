@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/css/remodal.css">
+    <link rel="stylesheet" type="text/css" href="/css/remodal-default-theme.css">
+</head>
+
+<body>
+
+    <main>
+        <div class="container">
+            <div class="page">
+                <div class="page_row">
+
+                    <partial name="_menu" />
+                    <section class="page_content">
+                        <div class="c-profile_content-row">
+                        @RenderBody()
+                         </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+
+        
+    </main>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="~/js/main.js"></script>
+    <script src="~/js/remodal.min.js"></script>
+    <script src="~/js/jquery-3.7.0.min.js"></script>
+
+    @RenderSection("script", false)
+
+</body>
+
+</html>

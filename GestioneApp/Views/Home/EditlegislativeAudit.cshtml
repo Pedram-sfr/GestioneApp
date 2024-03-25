@@ -1,0 +1,350 @@
+﻿@model SoftwareGestione.Core.ViewModel.EditViewModel
+class="text-danger text-danger-color "
+@{
+    ViewData["Title"] = "EditlegislativeAudit";
+    Layout = "~/Views/Shared/_DefaultLayout.cshtml";
+    TempData["Id"] = Model.Id;
+    TempData["check"] = Model.WorkDoneCheck;
+}
+<div class="c-profile_content-col">
+
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="EditlegislativeAudit">
+                <div asp-validation-summary="ModelOnly" class="text-danger text-danger-color"></div>
+                <div class="c-profile_personal-info_row">
+                    <div class="c-profile_personal-info_col col-100">
+                        <div class="form-group">
+                            <label asp-for="Id" class="control-label">FOR ID : </label>
+                            <span asp-for="Id" class="form-control c-input">@Model.Id</span>
+                            <span asp-validation-for="Id" class="text-danger text-danger-color"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="c-profile_personal-info_row">
+                    @if (Model.WorkDoneCheck == true)
+                    {
+                        <div class="c-profile_personal-info_col col-25">
+                            <div class="form-group">
+                                <label asp-for="CreatedDate" class="control-label"></label>
+                                <br />
+                                <span asp-for="CreatedDate">@Model.CreatedDate</span>
+                                <span asp-validation-for="CreatedDate" class="text-danger text-danger-color"></span>
+                            </div>
+                        </div>
+                        <div class="c-profile_personal-info_col col-25">
+                            <div class="form-group">
+                                <label asp-for="Deadline" class="control-label"></label>
+                                <br />
+                                <span asp-for="Deadline">@Model.Deadline</span>
+                                <span asp-validation-for="Deadline" class="text-danger text-danger-color"></span>
+                            </div>
+                        </div>
+                        <div class="c-profile_personal-info_col col-25">
+                            <div class="form-group">
+                                <label asp-for="WorkDoneDate" class="control-label"></label>
+                                <br />
+                                <span asp-for="Deadline">@Model.WorkDoneDate</span>
+                                <span asp-validation-for="WorkDoneDate" class="text-danger text-danger-color"></span>
+                            </div>
+                        </div>
+                        <div class="c-profile_personal-info_col col-25">
+                            <div class="form-group">
+                                <div class="c-checkout_paymethod-providers">
+                                    <label class="is-selected">
+                                        <div>
+                                            <span asp-for="WorkDoneCheck" class="c-checkout_paymethod-providers_title">DONE</span>
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                    @if (Model.WorkDoneCheck == false)
+                    {
+                        <div class="c-profile_personal-info_col col-50">
+                            <div class="form-group">
+                                <label asp-for="CreatedDate" class="control-label"></label>
+                                <br />
+                                <span asp-for="CreatedDate">@Model.CreatedDate</span>
+                                <span asp-validation-for="CreatedDate" class="text-danger text-danger-color"></span>
+                            </div>
+                        </div>
+                        <div class="c-profile_personal-info_col col-50">
+                            <div class="form-group">
+                                <label asp-for="Deadline" class="control-label"></label>
+                                <br />
+                                <span asp-for="Deadline">@Model.Deadline</span>
+                                <span asp-validation-for="Deadline" class="text-danger text-danger-color"></span>
+                            </div>
+                        </div>
+                    }
+                </div>
+
+                <div class="c-profile_personal-info_row">
+                    <div class="c-profile_personal-info_col">
+                        <div class="form-group">
+                            <label asp-for="References_Law" class="control-label"></label>
+                            <input asp-for="References_Law" class="form-control c-input" />
+                            <span asp-validation-for="References_Law" class="text-danger text-danger-color"></span>
+                        </div>
+                    </div>
+                    <div class="c-profile_personal-info_col">
+                        <div class="form-group">
+                            <label asp-for="WorkTitle" class="control-label"></label>
+                            <input asp-for="WorkTitle"  class="c-input"></input>
+                            <span asp-validation-for="WorkTitle" class="text-danger text-danger-color"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="c-profile_personal-info_row">
+                    <div class="c-profile_personal-info_col col-25">
+                        <div class="form-group">
+                            <label asp-for="PAType" class="control-label"></label>
+                            <input asp-for="PAType" class="c-input"></input>
+                            <span asp-validation-for="PAType" class="text-danger text-danger-color"></span>
+                        </div>
+                    </div>
+                    <div class="c-profile_personal-info_col col-75">
+                        <div class="form-group">
+                            <label asp-for="Activity_Description" class="control-label"></label>
+                            <textarea asp-for="Activity_Description" class="form-control c-input" ></textarea>
+                            <span asp-validation-for="Activity_Description" class="text-danger text-danger-color"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="c-profile_personal-info_row">
+                    <div class="c-profile_personal-info_col">
+                        <div class="form-group">
+                            <label asp-for="Priority" class="control-label"></label>
+                            <select asp-for="Priority" class="c-input">
+                                <option>Annuale</option>
+                                <option>Triennale</option>
+                                <option>Biennale</option>
+                                <option>Quadriennale</option>
+                                <option>Decennale</option>
+                                <option>Quinquennale</option>
+                            </select>
+                            <span asp-validation-for="Priority" class="text-danger text-danger-color"></span>
+                        </div>
+                    </div>
+                    <div class="c-profile_personal-info_col">
+                        <div class="form-group">
+                            <label asp-for="DaysNotice" class="control-label"></label>
+                            <input asp-for="DaysNotice" class="form-control c-input" />
+                            <span asp-validation-for="DaysNotice" class="text-danger text-danger-color"></span>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="c-profile_personal-info_row">
+                    <div class="c-profile_personal-info_col">
+                        <div class="form-group">
+                            <label asp-for="JobTitle" class="control-label"></label>
+                            <input asp-for="JobTitle"  class="c-input"></input>
+                            <span asp-validation-for="JobTitle" class="text-danger text-danger-color"></span>
+                        </div>
+                    </div>
+                    <div class="c-profile_personal-info_col">
+                        <div class="form-group">
+                            <label asp-for="Responsible_Name" class="control-label"></label>
+                            <input asp-for="Responsible_Name" class="form-control c-input" />
+                            <span asp-validation-for="Responsible_Name" class="text-danger text-danger-color"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="c-profile_personal-info_row">
+                    <div class="c-profile_personal-info_col col-100">
+                        <div class="form-group">
+                            <label asp-for="Actions_ToBeCarryOut" class="control-label"></label>
+                            <textarea asp-for="Actions_ToBeCarryOut" class="form-control c-input"></textarea>
+                            <span asp-validation-for="Actions_ToBeCarryOut" class="text-danger text-danger-color"></span>
+                        </div>
+                    </div>
+                </div>
+                @if (Model.WorkDoneCheck == true)
+                {
+                    <div class="c-profile_personal-info_row">
+                        <div class="c-profile_personal-info_col col-100">
+                            <div class="form-group">
+                                <label asp-for="Actions_ToBeCarriedOut" class="control-label"></label>
+                                <textarea asp-for="Actions_ToBeCarriedOut" class="form-control c-input"></textarea>
+                                <span asp-validation-for="Actions_ToBeCarriedOut" class="text-danger text-danger-color"></span>
+                            </div>
+                        </div>
+                    </div>
+                }
+                <div class="c-profile_personal-info_row">
+                    <div class="c-profile_personal-info_col">
+                        <div class="form-group">
+                            <label asp-for="Project" class="control-label"></label>
+                            <input asp-for="Project" class="form-control c-input" />
+                            <span asp-validation-for="Project" class="text-danger text-danger-color"></span>
+                        </div>
+                    </div>
+                    <div class="c-profile_personal-info_col">
+                        <div class="form-group">
+                            <label asp-for="COD" class="control-label"></label>
+                            <input asp-for="COD" class="form-control c-input" />
+                            <span asp-validation-for="COD" class="text-danger text-danger-color"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="c-profile_personal-info_row">
+                    <div class="c-profile_personal-info_col col-25">
+                        <div class="form-group">
+                            <label asp-for="Applicable" class="control-label"></label>
+
+                            <label class="c-radio c-radio_primary">
+                                <input asp-for="Applicable" type="radio" value="true">
+                                <span class="c-radio_check"></span>
+                                <span class="c-radio_span">SI</span>
+                            </label>
+                            <label class="c-radio c-radio_primary">
+                                <input asp-for="Applicable" type="radio" value="false">
+                                <span class="c-radio_check"></span>
+                                <span class="c-radio_span">NO</span>
+                            </label>
+                            <span asp-validation-for="Applicable" class="text-danger text-danger-color"></span>
+                        </div>
+
+                    </div>
+                    <div class="c-profile_personal-info_col col-25">
+                        <div class="form-group">
+                            <label asp-for="Update_Normative" class="control-label"></label>
+
+                            <label class="c-radio c-radio_primary">
+                                <input asp-for="Update_Normative" type="radio" value="true">
+                                <span class="c-radio_check"></span>
+                                <span class="c-radio_span">SI</span>
+                            </label>
+                            <label class="c-radio c-radio_primary">
+                                <input asp-for="Update_Normative" type="radio" value="false">
+                                <span class="c-radio_check"></span>
+                                <span class="c-radio_span">NO</span>
+                            </label>
+                            <span asp-validation-for="Update_Normative" class="text-danger text-danger-color"></span>
+                        </div>
+                    </div>
+                    <div class="c-profile_personal-info_col col-25">
+                        <div class="form-group">
+                            <label asp-for="Amb" class="control-label"></label>
+                            <label class="c-radio c-radio_primary">
+                                <input asp-for="Amb" type="radio" value="true">
+                                <span class="c-radio_check"></span>
+                                <span class="c-radio_span">SI</span>
+                            </label>
+                            <label class="c-radio c-radio_primary">
+                                <input asp-for="Amb" type="radio" value="false">
+                                <span class="c-radio_check"></span>
+                                <span class="c-radio_span">NO</span>
+                            </label>
+                            <span asp-validation-for="Amb" class="text-danger text-danger-color"></span>
+                        </div>
+                    </div>
+                    <div class="c-profile_personal-info_col col-25">
+                        <div class="form-group">
+                            <label asp-for="SS" class="control-label"></label>
+                            <label class="c-radio c-radio_primary">
+                                <input asp-for="SS" type="radio" value="true">
+                                <span class="c-radio_check"></span>
+                                <span class="c-radio_span">SI</span>
+                            </label>
+                            <label class="c-radio c-radio_primary">
+                                <input asp-for="SS" type="radio" value="false">
+                                <span class="c-radio_check"></span>
+                                <span class="c-radio_span">NO</span>
+                            </label>
+                            <span asp-validation-for="SS" class="text-danger text-danger-color"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="c-profile_personal-info_row">
+                    <div class="c-profile_personal-info_col col-25">
+                        <div class="form-group">
+                            <label asp-for="Storaged" class="control-label"></label>
+                            <label class="c-radio c-radio_primary">
+                                <input asp-for="Storaged" type="radio" value="true">
+                                <span class="c-radio_check"></span>
+                                <span class="c-radio_span">SI</span>
+                            </label>
+                            <label class="c-radio c-radio_primary">
+                                <input asp-for="Storaged" type="radio" value="false">
+                                <span class="c-radio_check"></span>
+                                <span class="c-radio_span">NO</span>
+                            </label>
+                            <span asp-validation-for="Storaged" class="text-danger text-danger-color"></span>
+                        </div>
+                    </div>
+                    <div class="c-profile_personal-info_col col-25">
+                        <div class="form-group">
+                            <label asp-for="Energy" class="control-label"></label>
+
+                            <label class="c-radio c-radio_primary">
+                                <input asp-for="Energy" type="radio" value="true">
+                                <span class="c-radio_check"></span>
+                                <span class="c-radio_span">SI</span>
+                            </label>
+                            <label class="c-radio c-radio_primary">
+                                <input asp-for="Energy" type="radio" value="false">
+                                <span class="c-radio_check"></span>
+                                <span class="c-radio_span">NO</span>
+                            </label>
+
+
+                            <span asp-validation-for="Energy" class="text-danger text-danger-color"></span>
+                        </div>
+                    </div>
+                    <div class="c-profile_personal-info_col col-25">
+                        <div class="form-group">
+                            <label asp-for="SPriority" class="control-label"></label>
+                            <label class="c-radio c-radio_primary">
+                                <input asp-for="SPriority" type="radio" value="true">
+                                <span class="c-radio_check"></span>
+                                <span class="c-radio_span">SI</span>
+                            </label>
+                            <label class="c-radio c-radio_primary">
+                                <input asp-for="SPriority" type="radio" value="false">
+                                <span class="c-radio_check"></span>
+                                <span class="c-radio_span">NO</span>
+                            </label>
+                            <span asp-validation-for="SPriority" class="text-danger text-danger-color"></span>
+                        </div>
+                    </div>
+                    <div class="c-profile_personal-info_col col-25">
+                        <div class="form-group">
+                            <label asp-for="Confidential" class="control-label"></label>
+                            <label class="c-radio c-radio_primary">
+                                <input asp-for="Confidential" type="radio" value="true">
+                                <span class="c-radio_check"></span>
+                                <span class="c-radio_span">SI</span>
+                            </label>
+                            <label class="c-radio c-radio_primary">
+                                <input asp-for="Confidential" type="radio" value="false">
+                                <span class="c-radio_check"></span>
+                                <span class="c-radio_span">NO</span>
+                            </label>
+                            <span asp-validation-for="Confidential" class="text-danger text-danger-color"></span>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+                <div class="c-form_edit-personal_row c-form_edit-personal_row-submit">
+                    <div class="c-form_edit-personal_col">
+                        <button type="submit" value="Create" class="btn-submit">Save</button>
+                    </div>
+                    <div class="c-form_edit-personal_col">
+                        <a class="btn-primary btn-primary_gray" asp-action="Index">Torna alla lista</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>
+

@@ -1,0 +1,75 @@
+﻿@model SoftwareGestione.Core.ViewModel.DoneViewModel
+
+@{
+    ViewData["Title"] = "Done";
+    Layout = "~/Views/Shared/_DefaultLayout.cshtml";
+    TempData["Id"] = Model.Id;
+    TempData["check"] = Model.WorkDoneCheck;
+
+}
+
+<div class="c-profile_content-col">
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="Done">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                 <div class="c-profile_personal-info_row">
+                    <div class="c-profile_personal-info_col col-100">
+                        <div class="form-group">
+                            <label asp-for="Id" class="control-label">FOR ID : </label>
+                            <span asp-for="Id" class="form-control c-input">@Model.Id</span>
+                            <span asp-validation-for="Id" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="c-profile_personal-info_row">
+                    <div class="c-profile_personal-info_col col-25">
+                        <div class="form-group">
+                            <label asp-for="CreatedDate" class="control-label"></label>
+                            <br />
+                            <span asp-for="CreatedDate">@Model.CreatedDate</span>
+                            <span asp-validation-for="CreatedDate" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="c-profile_personal-info_col col-25">
+                        <div class="form-group">
+                            <label asp-for="Deadline" class="control-label"></label>
+                            <br />
+                            <span asp-for="Deadline">@Model.Deadline</span>
+                            <span asp-validation-for="Deadline" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="c-profile_personal-info_col col-50">
+                        <div class="form-group">
+                            <label asp-for="WorkDoneDate" class="control-label"></label>
+                            <input asp-for="WorkDoneDate" class="c-input" type="date"></input>
+                            <span asp-validation-for="WorkDoneDate" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="c-profile_personal-info_row">
+                    <div class="c-profile_personal-info_col col-100">
+                        <div class="form-group">
+                            <label asp-for="Actions_ToBeCarriedOut" class="control-label"></label>
+                            <textarea asp-for="Actions_ToBeCarriedOut" class="form-control c-input"></textarea>
+                            <span asp-validation-for="Actions_ToBeCarriedOut" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="c-form_edit-personal_row c-form_edit-personal_row-submit">
+                    <div class="c-form_edit-personal_col">
+                        <button type="submit" value="Create" class="btn-submit">Save</button>
+                    </div>
+                    <div class="c-form_edit-personal_col">
+                        <a class="btn-primary btn-primary_gray" asp-action="Index">Torna alla lista</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
